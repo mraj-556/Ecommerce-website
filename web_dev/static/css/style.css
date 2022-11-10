@@ -89,6 +89,8 @@
     padding: 0.2vw;
     text-align: center;
     width: auto;
+    min-width: 20vw;
+    max-width: 20vw;
     border-radius: 5px;
     margin: auto;
     margin-top: 1vw;
@@ -97,8 +99,10 @@
 
 .container .product .product_inner:hover{
     background-color: rgb(11, 251, 11);
-    transition: 1s;
-    border: 2px solid black;
+    transition: 0.6s;
+    /* border: 2px solid black; */
+    box-shadow: 5px 10px 20px red inset;
+    border-radius: 5vw;
 }
 
 img{
@@ -114,7 +118,9 @@ img{
 
 .p_name{
     color: red;
-    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
