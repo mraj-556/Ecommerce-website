@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>SmartTime</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="search">
+                <input type="text" name="search" id="search" placeholder="search" onkeyup="search()">
+            </div>
+            <hr style="height: 0.2vw;background-color:black;border: none;">
+
+            <div class="product">
+                {%if details%}
+                    {%if details=="Items not available currently"%}
+                        <div style="margin:auto;margin-top:15vw;font-size:2vw;font-weight:bold;color:rgb(13, 74, 18);text-align: center;">
+                            Items are not available currently...! <br>
+                            <h5>Sorry for the inconvenience...</h5>
+                        </div>
+                    {%else%}
+                        {%for i in details%}
+                            <div class="product_inner">
+                                <a href="/describe/{{i[0]}}" id="upload-file-btn" ><img src="data:image/webp;charset=UTF-8;base64,{{i[-1]}}" alt=""></a>
+                                <h3 class="p_name">{{i[1]}}</h3>
+                                <h3 class="price">{{i[4]}} - <del>{{i[5]}}</del></h3>
+                            </div>
+                        {%endfor%}
+                    {%endif%}
+                {%endif%}
+            </div>
+
+        </div>
+    </div> 
+    
+    <script type="text/javascript">
+        function search(){
+            let filter = document.getElementById('search').value.toUpperCase();
+            let parent_class = document.getElementsByClassName('product');
+            let item = document.getElementsByClassName('product_inner');
+            // console.log(item[0]);
+
+            for (var i=0;i<item.length;i++){
+                let a = item[i].getElementsByClassName('p_name')[0];
+                let v = a.innerHTML || a.innerTEXT || a.textContent;
+                // console.log(i,v,filter);
+
+                if (v.toUpperCase().indexOf(filter)>-1){
+                    item[i].style.display="";
+                    item[i].style.margin ="0";
+                    // console.log(v.toUpperCase(),filter);
+                }
+                else{
+                    // console.log(i,'No match');
+                    item[i].style.display="none";
+                }
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>

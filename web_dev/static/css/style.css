@@ -1,0 +1,230 @@
+*{
+    margin: 0PX;
+    padding: 0PX;
+}
+
+
+                                /* login page */
+
+#main{
+    width: 100%;
+    height: 100vh;
+    background-color: aqua;
+    background: url('/static/images/login_bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#internal{
+    position: absolute;
+    background: transparent;
+    width: 50vw;
+    height: 30vw;
+    margin-top: 15vh;
+    margin-left: 50vw;
+    text-align: center;
+}
+#heading{
+    color: aliceblue;
+    padding-top: 7vw;
+    letter-spacing: 0.2vw;
+    font-size:2.5vw;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.ip_field{
+    margin-top: 2.5vw;
+    margin-left: 30%;
+    width: 40%;
+    height: 1.5vw;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 30px;
+    font-size: 1vw;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+.ip_field:hover{
+    transition: 0.5s;
+    width: 42%;
+    box-shadow: 5px 5px rgb(16, 229, 16);
+}
+
+                                    /* Home page */
+
+.container-fluid{
+    width: auto;
+    min-width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    background-color:teal;
+}
+.container{
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.container .search{
+    display: flex;
+    padding: 1vw;
+    padding-left: 10vw ;
+}
+#search{
+    padding-left: 2%;
+    font-size: 1.3vw;
+    width: 20vw;
+    height: fit-content;
+    min-height: 2VW;
+    border-radius: 30px;
+}
+.container .product {
+    text-align: left;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container .product .product_inner{
+    padding: 0.2vw;
+    text-align: center;
+    width: auto;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 1vw;
+    margin-left: 3vw;
+}
+
+.container .product .product_inner:hover{
+    background-color: rgb(11, 251, 11);
+    transition: 1s;
+    border: 2px solid black;
+}
+
+img{
+    max-width: 10vw;
+    min-height: 10VW;
+    max-height: 10VW;
+    margin: auto;
+}
+
+#price{
+    color: red;
+}
+
+.p_name{
+    color: red;
+    word-wrap: break-word;
+}
+
+
+
+                                    /* ADMIN page */
+#form_container{
+    position: relative;
+    min-height: 100vh;
+}
+
+#p_id_txt{
+    font-size: 1.3vw;
+    font-family:cursive;
+    display: inline-block;
+    width:20vw;
+    text-align: right;
+    padding-left: 15vw;
+}
+#p_id{
+    width: 20vw;
+    height:1.5vw;
+    border: 2px solid black;
+    border-radius: 0.5vw;
+    margin-top: 2vw;
+    margin-left: 2vw;
+    padding-left: 1vw;
+}
+
+.descblock *{
+    vertical-align: middle;
+}
+
+
+                                    /* Cart page */
+
+#desc_container{
+    background-color: aqua;
+    width: 70vw;
+    height: 30vw;
+    margin: auto;
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: row;
+    border: 0.5vw solid black;
+    border-radius: 2vw;
+}
+
+.checked{
+    color: red;
+}
+
+#pic{
+    /* background-color: yellow; */
+    width: 30vw;
+    border-collapse: collapse;
+    border-right: 0.3vw black solid;
+    border-radius: 1.5vw 0vw 0vw 1.5vw;
+    /* background-image: url('watch1.webp'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* padding: 2vw; */
+}
+
+#desc{
+    width: 40vw;
+    border-radius: 0px 1.5vw 1.5vw 0px;
+}
+
+#p_desc{
+    overflow-y: auto;
+}
+
+.kart_btn{
+    height: fit-content;
+    background-color: rgb(167, 26, 214);
+    color: whitesmoke;
+    min-height: 3vw;
+    font-size: 1.5vw;
+    font-weight: 800;
+    border: 0.3vw solid black;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-radius: 3vw;
+    text-align: center;
+    margin: auto;
+    margin-top: 1vw;
+}
+
+#kart{
+    /* background-color: aqua; */
+    width: auto;
+    height: auto;
+    min-height: 15vw;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+#kart_details{
+    margin: auto;
+    margin-top: 2vw;
+    text-align: center;
+    width: 80vw;
+    border-collapse: collapse;
+}
+
+th{
+    border: 3px solid black;
+}
+tr,td{
+    width: 10vw;
+    height: 15vw;
+    border: 2px solid black;
+}

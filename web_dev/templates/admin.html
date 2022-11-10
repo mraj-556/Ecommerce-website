@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="styletr.css">
+    <title>ADMIN</title>
+</head>
+<body>
+    <form action="/p_upload" method="post" style="background-color: aqua;margin: auto;" id="form_container" method="post" enctype="multipart/form-data">
+        
+        <h2 style="text-align: center;vertical-align: middle;margin-top:2vw;margin-left: 39vw;position: absolute;font-size: 2vw;"><u><i>Product Upload</i></u></h2>
+
+        <label id="p_id_txt" for="p_id" style="margin-top: 6vw;">Product ID <span style="color: red;">*</span>:</label>
+        <input type="text" name="p_id" id="p_id" required><br>
+
+        <label id="p_id_txt" for="p_name">Product Name <span style="color: red;">*</span>:</label>
+        <input type="text" name="p_name" id="p_id" required><br>
+
+        <p class="descblock">
+            <label id="p_id_txt" for="p_desc">Product Description :</label>
+            <textarea id="p_id" name="p_desc" style="height: 5vw;" placeholder="Description about product"></textarea>
+        </p>
+
+        <label id="p_id_txt" for="p_category">Product Category <span style="color: red;">*</span> :</label>
+        <input type="text" name="p_category" id="p_id" required><br>
+
+        <label id="p_id_txt" for="p_mrp">Product MRP <span style="color: red;">*</span> :</label>
+        <input type="text" name="p_mrp" id="p_id" required><br>
+
+        <label id="p_id_txt" for="p_prev_price">Previous price <span style="color: red;">*</span> :</label>
+        <input type="text" name="p_prev_price" id="p_id" required><br>
+
+        <label id="p_id_txt" for="p_img">Product Image <span style="color: red;">*</span> :</label>
+        <input type="file" name="p_img" id="p_id" style="border:none;font-size:1vw;height: auto;" accept="image/*" required><br>
+
+        <input type="submit" name="Upload" value="Upload" style="background-color: green;margin-left:43vw;margin-top:3vw;width:8vw;height:2vw;font-size:1.2vw;font-weight:bold;border:0.2vw solid black;border-radius:2vw;">
+        <div id="msg" style="margin-left: 41vw;font-size: 1.7vw;color: red;margin-top: 1.5vw;">
+            {%if msg%}
+                {{msg}}
+            {%endif%}
+        </div>
+    </form>
+    
+</body>
+</html>

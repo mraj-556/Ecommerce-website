@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div id="main">
+        <div id="internal">
+            <h2 id="heading"><U>LOGIN</U></h2>
+            <form action="{{url_for('homepage')}}" method="post" id="details">
+                <input type="text" name="u_name" class="ip_field" id="u_name" placeholder="USERNAME" autofocus autocomplete="off" required>
+                <input type="password" name="u_pswd" class="ip_field" id="u_pswd" placeholder="PASSWORD" autocomplete="off" required>
+                <input style="margin-top:2vw;width: 15%;height: 1.5vw;font-weight: bold;font-size: 1vw;color: green;border: 2px solid green; border-radius: 30px;" type="submit" value="LOGIN">
+                <div style="color: red;margin-top: 1vw;margin-top: 2vw; font-size: 1.5vw;font-weight: 600;">New user? click <a style="color: aqua;text-decoration:none;" href="/register">HERE</a></div>
+            </form>
+            <div style="color: red;margin-top: 1vw;font-size: 1.5vw;font-weight: 600;">
+                {%if msg%}
+                    {%if msg=='Wrong Password'%}
+                        <script>
+                            document.getElementById('u_pswd').style.border="4px solid red";
+                        </script>
+                    {%endif%}
+                    {%if msg=='Wrong Username'%}
+                    <script>
+                        document.getElementById('u_name').style.border="4px solid red";
+                    </script>
+                    {%endif%}
+                    
+                    {{msg}}
+                {%endif%}
+            </div>
+        </div>
+        
+
+    </div>
+    
+</body>
+
+</html>

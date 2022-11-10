@@ -1,0 +1,76 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#desc_container{
+    background-color: aqua;
+    width: 70vw;
+    height: 30vw;
+    margin: auto;
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: row;
+    border: 0.5vw solid black;
+    border-radius: 2vw;
+}
+
+#pic{
+    /* background-color: yellow; */
+    width: 30vw;
+    border-collapse: collapse;
+    border-right: 0.3vw black solid;
+    border-radius: 1.5vw 0vw 0vw 1.5vw;
+    background-image: url('watch1.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* padding: 2vw; */
+}
+
+#desc{
+    width: 40vw;
+    border-radius: 0px 1.5vw 1.5vw 0px;
+}
+#p_desc{
+    overflow-y: auto;
+}
+
+.kart_btn{
+    height: fit-content;
+    background-color: rgb(167, 26, 214);
+    color: whitesmoke;
+    min-height: 3vw;
+    font-size: 1.5vw;
+    font-weight: 800;
+    border: 0.3vw solid black;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-radius: 3vw;
+    text-align: center;
+    margin: auto;
+    margin-top: 1vw;
+}
+#kart{
+    /* background-color: aqua; */
+    width: auto;
+    height: auto;
+    min-height: 15vw;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+#kart_details{
+    margin: auto;
+    margin-top: 2vw;
+    text-align: center;
+    width: 80vw;
+    border-collapse: collapse;
+}
+th{
+    border: 3px solid black;
+}
+tr,td{
+    width: 10vw;
+    height: 15vw;
+    border: 2px solid black;
+}

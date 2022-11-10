@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="styletr.css"> -->
+    <title>Description Page</title>
+</head>
+<body>
+    <section>
+        <div id="desc_container">
+            <div id="pic">
+                <script>
+                    let p_img = document.getElementById('pic');
+                    p_img.style.backgroundImage = "url('data:image/webp;charset=UTF-8;base64,{{p_details[0][-1]}}')";
+                </script>
+            </div>
+            
+            <div id="desc">
+                <div id="rating" style="margin-top:1.5vw;text-align: right;">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div id="p_name" style="margin-top: 2vw;width: fit-content;max-width: 35vw; min-height: 4vw;font-size: 1.5vw;font-weight: 700;margin-left: 2vw;padding: 0.5vw;text-align: left;">
+                    Name : {{p_details[0][1]}}
+                </div>
+
+                <div id="p_price" style="width: fit-content;max-width: 35vw; min-height: 4vw;font-size: 1.5vw;font-weight: 700;margin-left: 2vw;padding: 0.5vw;text-align: left;">
+                    Price : {{p_details[0][4]}} /-
+                </div>
+
+                <div id="p_off" style="width: fit-content;max-width: 35vw; min-height: 4vw;font-size: 1.5vw;font-weight: 700;margin-left: 2vw;padding: 0.5vw;text-align: left;">
+                    Offer : 30%
+                </div>
+
+                <div id="p_desc" style="width: fit-content;max-width: 38vw; min-height: 6vw;max-height: 6vw;font-size: 1.5vw;font-weight: 700;margin-left: 2vw;padding: 0.5vw;text-align: left;overflow-y: auto;font-size: 1.2vw;">
+                    Description : {{p_details[0][2]}}
+                </div>
+            </div>
+        </div>
+
+        <div id="btn" style="text-align: center;height: 5vw;margin-top: 1vw;">
+            <input onclick="add_cart()" class="kart_btn" type="submit" value="ADD TO CART">
+            <input onclick="buy_cart()" class="kart_btn" type="submit" value="Buy Now" style="margin-left: 20vw;">
+        </div>
+    </section>
+
+    <hr style="background-color: black;height:0.5vw;width:50vw;margin: auto;margin-top:4vw;">
+    
+
+    <section id="kart" >
+        <table id="kart_details" border=1>
+            <tr style="height: 5vw;font-size: 1.5vw;font-weight:bold;">
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>action</th>
+            </tr>
+
+            <script>
+                var quantity = 0;
+                function add_cart(){
+                    var c_name = document.getElementById('cart_name').innerText;
+                    var c_price = document.getElementById('cart_price').innerText;
+                    if (quantity==0){
+                        var tab = document.getElementById('kart_details');
+                        var row = document.createElement('tr');
+                        row.setAttribute('id','r');
+                        var pic_data = document.createElement('td');
+                        pic_data.style.backgroundImage = "url('data:image/webp;charset=UTF-8;base64,{{p_details[0][-1]}}')"
+                        pic_data.style.backgroundPosition = "center";
+                        pic_data.style.backgroundRepeat ="no-repeat";
+                        pic_data.style.backgroundSize = "cover";
+
+                        row.appendChild(pic_data);
+                        for (let j=0;j<4;j++){
+                            var row_data = document.createElement('td');   
+                            if(j==0){
+                                row_data.innerText = c_name;
+                                row_data.style.fontSize = "1.5vw";
+                                row_data.style.fontWeight = "600";
+                            }
+                            else if(j==1){
+                                row_data.innerText =quantity+1;
+                                quantity = quantity+1;
+                                row_data.setAttribute('id','q');
+                                row_data.style.fontSize = "1.5vw";
+                                row_data.style.fontWeight = "600";
+                            }
+                            else if(j==2){
+                                row_data.innerText = c_price;
+                                row_data.setAttribute('id','p');
+                                row_data.style.fontSize = "1.5vw";
+                                row_data.style.fontWeight = "600";
+                            }
+                            else if(j==3){
+                                var buy_btn = document.createElement('input');
+                                buy_btn.type = "submit";
+                                buy_btn.value = "Buy";
+                                buy_btn.style.backgroundColor = "green";
+                                buy_btn.style.width = "7vw";
+                                buy_btn.style.marginTop = "1vw";
+                                buy_btn.style.borderRadius = '1vw';
+                                buy_btn.style.fontSize = "1.2vw";
+                                buy_btn.style.fontWeight = "700";
+                                buy_btn.style.textAlign = "center";
+                                buy_btn.setAttribute('onclick','buy_cart()');
+
+                                var rmv_btn = document.createElement('input');
+                                rmv_btn.type = "submit";
+                                rmv_btn.value = "Remove";
+                                rmv_btn.style.backgroundColor = "green";
+                                rmv_btn.style.width = "7vw";
+                                rmv_btn.style.marginTop = "1vw";
+                                rmv_btn.style.borderRadius = '1vw';
+                                rmv_btn.style.fontSize = "1.2vw";
+                                rmv_btn.style.fontWeight = "700";
+                                rmv_btn.style.textAlign = "center";
+                                rmv_btn.setAttribute('onclick','rmv_cart()');
+
+                                row_data.appendChild(buy_btn);
+                                var b = document.createElement('br');
+                                row_data.appendChild(b);
+                                row_data.appendChild(rmv_btn);
+                            }
+                            row.appendChild(row_data);
+                        }
+                        
+                        tab.appendChild(row);
+                        var total = document.createElement('tr');
+                        
+                        total.setAttribute('colspan',3);
+                        total.style.height = "5vw";
+                        total.setAttribute('id','total_price');
+                        total.innerText = "Total : ".concat(c_price);
+                        total.style.fontSize = '1.8vw';
+                        total.style.fontWeight = "800";
+                        total.style.textAlign = "right";
+
+                        tab.appendChild(total);
+                    }
+                    else if(quantity<10){
+                        var v = document.getElementById('q');
+                        var v1 = document.getElementById('total_price');
+                        quantity = quantity+1;
+                        v.innerText = quantity;
+                        // console.log(c_price);
+                        v1.innerText = 'Total : '.concat(quantity*(c_price));
+                    }
+                    else{
+                        alert("You can't add more than 10 items to cart...!");
+                    }
+                }
+
+                function buy_cart(){
+                    alert('You Purchased this item...Thank You');
+                    var rm = document.getElementById('r');
+                    var rm1 = document.getElementById('total_price');
+                    rm.remove();rm1.remove(); 
+                    quantity = 0;
+                }
+
+                function rmv_cart(){
+                    alert('You Removed this item...!');
+                    var rm = document.getElementById('r');
+                    var rm1 = document.getElementById('total_price');
+                    rm.remove();rm1.remove(); 
+                    quantity = 0;
+                }
+            </script>
+        </table>
+
+    </section>
+
+
+    
+<div id="cart_name">{{p_details[0][1]}}</div>
+<div id="cart_price">{{p_details[0][4]}}</div>
+
+</body>
+</html>
